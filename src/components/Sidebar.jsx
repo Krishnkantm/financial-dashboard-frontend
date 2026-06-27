@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 
 const Sidebar = () => {
@@ -6,33 +6,24 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <h1 className="logo">
-        Finance Dashboard
-      </h1>
+      <h1 className="logo">Finance Dashboard</h1>
 
       <div className="sidebar-menu">
-        <ul className="space-y-4">
+        <ul>
 
-          {(user?.role === "admin" ||
-            user?.role === "analyst") && (
+          {(user?.role === "admin" || user?.role === "analyst") && (
             <li>
-              <Link to="/dashboard">
-                Dashboard
-              </Link>
+              <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
           )}
 
           <li>
-            <Link to="/records">
-              Records
-            </Link>
+            <NavLink to="/records">Records</NavLink>
           </li>
 
           {user?.role === "admin" && (
             <li>
-              <Link to="/users">
-                Users
-              </Link>
+              <NavLink to="/users">Users</NavLink>
             </li>
           )}
 
